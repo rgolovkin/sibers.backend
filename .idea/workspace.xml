@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f01daf41-2878-4e5b-81ee-337e912d8083" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env.sample" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dump/sibers.10.08.25.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fix-migration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20250805191332-create-user.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20250809184430-add_role_to_users.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodemon.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sequelize.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configs/http/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configs/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/database.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.handlers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.schemas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/profile/profile.handlers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/profile/profile.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/profile/profile.schemas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/profile/profile.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/user/user.handlers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/user/user.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/user/user.schemas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/user/user.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/plugins/authentificate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/plugins/jwt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/404.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/auth/login.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/auth/register.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/partials/footer.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/partials/header.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/profile/user.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/users/dashboard.hbs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/config/config.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/migrations/20250805191332-create-user.cjs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/models/index.js" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="30qpSu2C8u41Hu7mswNZpt41ikb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/ratmirgolivkin/PhpstormProjects/sibers/sibers.backend/src/modules/user",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "/Applications/PhpStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/modules/user" />
+      <recent name="$PROJECT_DIR$/src/modules/profile" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PS-241.15989.102" />
+        <option value="bundled-php-predefined-ba97393d7c68-c76157a7178b-com.jetbrains.php.sharedIndexes-PS-241.15989.102" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f01daf41-2878-4e5b-81ee-337e912d8083" name="Changes" comment="" />
+      <created>1754364960655</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754364960655</updated>
+      <workItem from="1754364961704" duration="564000" />
+      <workItem from="1754365631609" duration="386000" />
+      <workItem from="1754366193583" duration="821000" />
+      <workItem from="1754389785321" duration="24669000" />
+      <workItem from="1754603587399" duration="239000" />
+      <workItem from="1754672716278" duration="40894000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

@@ -1,0 +1,241 @@
+<title>Sibers</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+  :root {
+    --primary-color: #6c63ff;
+    --background-color: #f0f2f5;
+    --card-background: #1e1e1e;
+    --text-color-light: #fff;
+    --input-border: #555;
+    --error-color: #e81d1d;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--background-color);
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 40px;
+    background: var(--card-background);
+    color: var(--text-color-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+    width: 320px;
+    box-sizing: border-box;
+  }
+
+  .login-form h1 {
+    margin: 0 0 24px 0;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .form-input-material {
+    margin: 18px 0;
+    position: relative;
+    width: 100%;
+  }
+
+  .form-input-material input {
+    width: 100%;
+    padding: 12px 8px 8px 8px;
+    border: none;
+    background: transparent;
+    color: var(--text-color-light);
+    font-size: 16px;
+    border-bottom: 2px solid var(--input-border);
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-input-material input:focus {
+    border-color: var(--primary-color);
+  }
+
+  .form-input-material input:focus ~ label,
+  .form-input-material input:not(:placeholder-shown) ~ label {
+    top: -16px;
+    font-size: 12px;
+    color: var(--primary-color);
+  }
+
+  .form-input-material label {
+    position: absolute;
+    top: 12px;
+    left: 8px;
+    color: #aaa;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color-light);
+    background: var(--primary-color);
+    border: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .btn:hover {
+    background: #5750d4;
+    transform: translateY(-2px);
+  }
+
+  .btn:disabled {
+    background: #444;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  #toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--error-color);
+    color: var(--text-color-light);
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 280px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+  }
+
+  #toast.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .signup-link {
+    margin-top: 20px;
+    color: #ccc;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .signup-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <span id="toastMessage"></span>
+</div>
+
+<form id="loginForm" class="login-form" action="/api/v1/auth/login" method="POST">
+  <h1>Login</h1>
+  <div class="form-input-material">
+    <input type="text" id="username" placeholder=" " autocomplete="off" required />
+    <label for="username">Username</label>
+  </div>
+  <div class="form-input-material">
+    <input type="password" id="password" placeholder=" " autocomplete="off" required />
+    <label for="password">Password</label>
+  </div>
+  <button id="submitBtn" type="submit" class="btn">Login</button>
+  <div class="signup-link">
+    Don't have an account? <a href="/register">Sign up</a>
+  </div>
+</form>
+
+<script>
+  const loginForm = document.getElementById('loginForm');
+  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password');
+  const submitBtn = document.getElementById('submitBtn');
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toastMessage');
+  let toastTimeout;
+
+  function showToast(message) {
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4000);
+  }
+
+  function validateInputs() {
+    if (usernameInput.value.length < 3 || usernameInput.value.length > 50) {
+      showToast('Username must be between 3 and 50 characters.');
+      return false;
+    }
+    if (passwordInput.value.length < 6 || passwordInput.value.length > 100) {
+      showToast('Password must be between 6 and 100 characters.');
+      return false;
+    }
+    return true;
+  }
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validateInputs()) {
+      return;
+    }
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch(loginForm.action, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: usernameInput.value,
+          password: passwordInput.value,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        showToast(data.message || 'Login failed.');
+        submitBtn.disabled = false;
+        return;
+      }
+
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+      }
+
+      window.location.href = '/dashboard';
+    } catch (error) {
+      showToast('Network error, please try again.');
+      submitBtn.disabled = false;
+    }
+  });
+</script>

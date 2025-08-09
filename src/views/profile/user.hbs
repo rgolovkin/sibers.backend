@@ -1,0 +1,384 @@
+<title>Sibers</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+  :root {
+    --primary-color: #6c63ff;
+    --background-color: #f0f2f5;
+    --card-background: #1e1e1e;
+    --text-color-light: #fff;
+    --input-border: #555;
+    --error-color: #e81d1d;
+    --success-color: #28a745;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--background-color);
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 40px;
+    background: var(--card-background);
+    color: var(--text-color-light);
+    border-radius: 12px;
+    width: 320px;
+    gap: 16px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+  }
+
+  .profile-container h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+
+  .form-input-material {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .form-input-material label {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 6px;
+    user-select: none;
+  }
+
+  .form-input-material input,
+  .form-input-material select {
+    padding: 12px 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid var(--input-border);
+    background: #333;
+    color: var(--text-color-light);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .form-input-material input:focus,
+  .form-input-material select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+  }
+
+  .form-input-material input:disabled,
+  .form-input-material select:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    color: #999;
+    background: #2e2e2e;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .button-full-width {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .button-row button,
+  .button-full-width button {
+    flex: 1;
+    padding: 12px 0;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+  }
+
+  .back-btn,
+  .edit-btn {
+    min-width: 120px;
+    max-width: 150px;
+  }
+
+  .back-btn {
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  .back-btn:hover {
+    background: var(--primary-color);
+    color: var(--text-color-light);
+  }
+
+  .edit-btn {
+    background: var(--primary-color);
+    border: none;
+    color: var(--text-color-light);
+  }
+
+  .edit-btn:hover {
+    background: #5750d4;
+    transform: translateY(-2px);
+  }
+
+  .logout-btn {
+    width: 100%;
+    background: none;
+    border: 2px solid var(--error-color);
+    color: var(--error-color);
+  }
+
+  .logout-btn:hover {
+    color: var(--text-color-light);
+    background: var(--error-color);
+    border: 2px solid var(--error-color);
+  }
+
+  #toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 280px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    color: var(--text-color-light);
+    z-index: 100;
+  }
+
+  #toast.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #toast.error {
+    background-color: var(--error-color);
+  }
+
+  #toast.success {
+    background-color: var(--success-color);
+  }
+</style>
+
+<div class="profile-container" id="profileContainer">
+  <h1 id="profileTitle">Your Profile</h1>
+  <div class="form-input-material">
+    <label for="username">Username</label>
+    <input type="text" id="username" disabled />
+  </div>
+  <div class="form-input-material">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" disabled />
+  </div>
+  <div class="form-input-material">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" disabled />
+  </div>
+  <div class="form-input-material">
+    <label for="gender">Gender</label>
+    <select id="gender" disabled>
+      <option value="">Select Gender</option>
+      <option value="MALE">Male</option>
+      <option value="FEMALE">Female</option>
+      <option value="OTHER">Other</option>
+    </select>
+  </div>
+  <div class="form-input-material">
+    <label for="birthdate">Birthdate</label>
+    <input type="date" id="birthdate" disabled />
+  </div>
+  <div id="buttonContainer"></div>
+</div>
+
+<div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <span id="toastMessage"></span>
+</div>
+
+<script>
+  const profileContainer = document.getElementById('profileContainer');
+  const profileTitle = document.getElementById('profileTitle');
+  const buttonContainer = document.getElementById('buttonContainer');
+  const firstNameInput = document.getElementById('firstName');
+  const lastNameInput = document.getElementById('lastName');
+  const genderInput = document.getElementById('gender');
+  const usernameInput = document.getElementById('username');
+  const birthdateInput = document.getElementById('birthdate');
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toastMessage');
+  let toastTimeout;
+  let currentUserId = null;
+  let loggedInUser = null;
+  let isEditing = false;
+  let isViewingOwnProfile = false;
+
+  function showToast(message, type = 'error') {
+    toastMessage.textContent = message;
+    toast.className = '';
+    toast.classList.add('show', type);
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4000);
+  }
+
+  async function fetchProfile(userId = null) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      window.location.href = '/login';
+      return;
+    }
+    try {
+      const loggedInUserRes = await fetch('/api/v1/profile', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (!loggedInUserRes.ok) {
+        localStorage.removeItem('token');
+        window.location.href = '/login';
+        return;
+      }
+      loggedInUser = await loggedInUserRes.json();
+      const targetUserId = userId || loggedInUser.id;
+      isViewingOwnProfile = targetUserId === loggedInUser.id;
+      const url = isViewingOwnProfile ? `/api/v1/profile` : `/api/v1/profile/${targetUserId}`;
+      const profileRes = await fetch(url, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (!profileRes.ok) {
+        throw new Error('Failed to load profile');
+      }
+      const user = await profileRes.json();
+      currentUserId = user.id;
+      usernameInput.value = user.username;
+      firstNameInput.value = user.firstName;
+      lastNameInput.value = user.lastName;
+      genderInput.value = user.gender;
+      birthdateInput.value = user.birthdate.slice(0, 10);
+      profileTitle.textContent = isViewingOwnProfile ? 'Your Profile' : `${user.firstName}'s Profile`;
+      renderButtons();
+    } catch (e) {
+      showToast(e.message, 'error');
+    }
+  }
+
+  function renderButtons() {
+    buttonContainer.innerHTML = '';
+    const isUserAdmin = loggedInUser && loggedInUser.role === 'ADMIN';
+
+    if (isViewingOwnProfile || isUserAdmin) {
+      const topRow = document.createElement('div');
+      topRow.className = 'button-row';
+
+      const editBtn = document.createElement('button');
+      editBtn.className = 'edit-btn';
+      editBtn.textContent = isEditing ? 'Save profile' : 'Edit profile';
+      editBtn.addEventListener('click', handleEditSave);
+      topRow.appendChild(editBtn);
+
+      const backBtn = document.createElement('button');
+      backBtn.className = 'back-btn';
+      backBtn.textContent = 'Back to Dashboard';
+      backBtn.addEventListener('click', handleBack);
+      topRow.appendChild(backBtn);
+
+      buttonContainer.appendChild(topRow);
+    }
+
+    if (isViewingOwnProfile) {
+      const bottomRow = document.createElement('div');
+      bottomRow.className = 'button-full-width';
+      const logoutBtn = document.createElement('button');
+      logoutBtn.className = 'logout-btn';
+      logoutBtn.textContent = 'Logout';
+      logoutBtn.addEventListener('click', handleLogout);
+      bottomRow.appendChild(logoutBtn);
+      buttonContainer.appendChild(bottomRow);
+    }
+    toggleEditMode(isEditing);
+  }
+
+  function toggleEditMode(enabled) {
+    isEditing = enabled;
+    firstNameInput.disabled = !enabled;
+    lastNameInput.disabled = !enabled;
+    genderInput.disabled = !enabled;
+    usernameInput.disabled = true;
+    birthdateInput.disabled = true;
+    const editBtn = buttonContainer.querySelector('.edit-btn');
+    if (editBtn) {
+      editBtn.textContent = isEditing ? 'Save profile' : 'Edit profile';
+    }
+  }
+
+  async function handleEditSave() {
+    if (isEditing) {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = '/login';
+        return;
+      }
+      const payload = {
+        firstName: firstNameInput.value,
+        lastName: lastNameInput.value,
+        gender: genderInput.value,
+      };
+      const url = new URL(`${window.location.origin}/api/v1/profile/edit`);
+      if (!isViewingOwnProfile) {
+        url.searchParams.append('id', currentUserId);
+      }
+      try {
+        const res = await fetch(url.toString(), {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          showToast(data.message || 'Failed to save profile', 'error');
+          return;
+        }
+        toggleEditMode(false);
+        showToast('Profile saved successfully', 'success');
+      } catch (e) {
+        showToast('Network error, please try again', 'error');
+      }
+    } else {
+      toggleEditMode(true);
+    }
+  }
+
+  function handleLogout() {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  }
+
+  function handleBack() {
+    window.location.href = '/dashboard';
+  }
+
+  const pathParts = window.location.pathname.split('/');
+  const userId = pathParts[2] && pathParts[2] !== '' ? pathParts[2] : null;
+  fetchProfile(userId);
+</script>
