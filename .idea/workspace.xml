@@ -5,58 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f01daf41-2878-4e5b-81ee-337e912d8083" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dump/sibers.10.08.25.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fix-migration.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/20250805191332-create-user.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/20250809184430-add_role_to_users.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodemon.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sequelize.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/configs/http/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/configs/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/database.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.handlers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.schemas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/auth.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/profile/profile.handlers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/profile/profile.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/profile/profile.schemas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/profile/profile.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/user/user.handlers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/user/user.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/user/user.schemas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/user/user.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plugins/authentificate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plugins/jwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/404.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/auth/login.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/auth/register.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/partials/footer.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/partials/header.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/profile/user.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/users/dashboard.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +40,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "last_opened_file_path": "/Users/ratmirgolivkin/PhpstormProjects/sibers/sibers.backend/src/modules/user",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
