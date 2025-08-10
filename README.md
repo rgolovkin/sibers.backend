@@ -1,6 +1,6 @@
 # Project
 
-A web application with a REST API on Node.js (Express) and a PostgreSQL database in Docker.
+A web application with a REST API on Node.js (Fastify) and a PostgreSQL database in Docker.
 
 ---
 
